@@ -62,7 +62,7 @@
     <!-- /Blog Posts Section -->
 
     <!-- Blog Pagination Section -->
-    <section id="blog-pagination" class="blog-pagination section">
+   <!--  <section id="blog-pagination" class="blog-pagination section">
 
       <div class="container">
         <div class="d-flex justify-content-center">
@@ -93,6 +93,120 @@
           </ul>
         </div>
       </div>
-    </section><!-- /Blog Pagination Section -->
+    </section>
+        <!-- Blog Pagination Section -->
+        <section id="blog-pagination" class="blog-pagination section">
+
+          <div class="container">
+            <div class="d-flex justify-content-center">
+              <ul>
+                {% if page_num == last_2 %}
+                <li><a href={% url 'blog:blog' %}?page={{blogs.previous_page_number}}><i class="bi bi-chevron-left"></i></a></li>
+
+                <li><a href={% url 'blog:blog' %}?page={{first}}>1</a></li>
+                <li>...</li>
+                <li><a href={% url 'blog:blog' %}?page={{page_num_1}}>{{page_num_1}}</a></li>
+                <li><a href="#" class="active">{{page_num}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{page_nump1}}>{{page_nump1}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{last}}>{{last}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{blogs.next_page_number}}><i class="bi bi-chevron-right"></i></a></li>
+
+                {% elif page_num == last_1 %}
+                <li><a href={% url 'blog:blog' %}?page={{blogs.previous_page_number}}><i class="bi bi-chevron-left"></i></a></li>
+                <li><a href={% url 'blog:blog' %}?page={{first}}>1</a></li>
+                <li>...</li>
+                <li><a href={% url 'blog:blog' %}?page={{page_num_2}}>{{page_num_2}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{page_num_1}}>{{page_num_1}}</a></li>
+                <li><a href="#" class="active">{{page_num}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{last}}>{{last}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{blogs.next_page_number}}><i class="bi bi-chevron-right"></i></a></li>
+
+                {% elif page_num == 2 %}
+                <li><a href={% url 'blog:blog' %}?page={{blogs.previous_page_number}}><i class="bi bi-chevron-left"></i></a></li>
+                <li><a href={% url 'blog:blog' %}?page={{first}}>1</a></li>
+                <li><a href="#" class="active">{{page_num}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{page_nump1}}>{{page_nump1}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{page_nump2}}>{{page_nump2}}</a></li>
+                <li>...</li>
+                <li><a href={% url 'blog:blog' %}?page={{last}}>{{last}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{blogs.next_page_number}}><i class="bi bi-chevron-right"></i></a></li>
+
+                {% elif page_num == 3 %}
+                <li><a href={% url 'blog:blog' %}?page={{blogs.previous_page_number}}><i class="bi bi-chevron-left"></i></a></li>
+                <li><a href={% url 'blog:blog' %}?page={{first}}>1</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{page_num_1}}>{{page_num_1}}</a></li>
+                <li><a href="#" class="active">{{page_num}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{page_nump1}}>{{page_nump1}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{page_nump2}}>{{page_nump2}}</a></li>
+                <li>...</li>
+                <li><a href={% url 'blog:blog' %}?page={{last}}>{{last}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{blogs.next_page_number}}><i class="bi bi-chevron-right"></i></a></li>
+
+                {% elif page_num == last_3 %}
+                <li><a href={% url 'blog:blog' %}?page={{blogs.previous_page_number}}><i class="bi bi-chevron-left"></i></a></li>
+                <li><a href={% url 'blog:blog' %}?page={{first}}>1</a></li>
+                <li>...</li>
+                <li><a href={% url 'blog:blog' %}?page={{page_num_1}}>{{page_num_1}}</a></li>
+                <li><a href="#" class="active">{{page_num}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{page_nump1}}>{{page_nump1}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{page_nump2}}>{{page_nump2}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{last}}>{{last}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{blogs.next_page_number}}><i class="bi bi-chevron-right"></i></a></li>
+
+                {% elif blogs.has_next and blogs.has_previous %} 
+                
+                <li><a href={% url 'blog:blog' %}?page={{blogs.previous_page_number}}><i class="bi bi-chevron-left"></i></a></li>
+
+                <li><a href={% url 'blog:blog' %}?page={{first}}>1</a></li>
+                <li>...</li>
+                <li><a href={% url 'blog:blog' %}?page={{page_num_1}}>{{page_num_1}}</a></li>
+                <li><a href="#" class="active">{{page_num}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{page_nump1}}>{{page_nump1}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{page_nump2}}>{{page_nump2}}</a></li>
+                <li>...</li>
+                <li><a href={% url 'blog:blog' %}?page={{last}}>{{last}}</a></li>
+                <li><a href={% url 'blog:blog' %}?page={{blogs.next_page_number}}><i class="bi bi-chevron-right"></i></a></li>
+
+{% comment %}                 <a href={% url 'blog:blog' %}?page={{blogs.previous_page_number}}><i class="bi bi-chevron-left"></i></a>
+                <a href={% url 'blog:blog' %}?page={{first}}><button>first page</button>
+                <a href={% url 'blog:blog' %}?page={{blogs.previous_page_number}}><button>prev pag</button>
+                <a href={% url 'blog:blog' %}?page={{blogs.next_page_number}}><button>next page</button>
+                <a href={% url 'blog:blog' %}?page={{last}}><button>last page</button>
+                <a href={% url 'blog:blog' %}?page={{blogs.next_page_number}}><i class="bi bi-chevron-right"></i></a> {% endcomment %}
+  
+              
+              {% elif blogs.has_next %}
+              <li><a href={% url 'blog:blog' %}?page={{first}} class="active">1</a></li>
+              <li><a href={% url 'blog:blog' %}?page={{blogs.next_page_number}}>2</a></li>
+              <li><a href={% url 'blog:blog' %}?page={{page_nump2}}>3</a></li>
+              <li>...</li>
+              <li><a href={% url 'blog:blog' %}?page={{last}}>{{last}}</a></li>
+              <li><a href={% url 'blog:blog' %}?page={{blogs.next_page_number}}><i class="bi bi-chevron-right"></i></a></li>
+              
+{% comment %}                 <a href={% url 'blog:blog' %}?page={{blogs.next_page_number}}><button>next page</button>
+                <a href={% url 'blog:blog' %}?page={{last}}><button>last page</button>
+                <a href={% url 'blog:blog' %}?page={{blogs.next_page_number}}><i class="bi bi-chevron-right"></i></a> {% endcomment %}
+  
+  
+              {% elif blogs.has_previous %}
+              <li><a href={% url 'blog:blog' %}?page={{blogs.previous_page_number}}><i class="bi bi-chevron-left"></i></a></li>
+              <li><a href={% url 'blog:blog' %}?page={{first}}>1</a></li>
+              <li>...</li>
+              <li><a href={% url 'blog:blog' %}?page={{page_num_2}}>{{page_num_2}}</a></li>
+              <li><a href={% url 'blog:blog' %}?page={{blogs.previous_page_number}}>{{page_num_1}}</a></li>
+              <li><a href={% url 'blog:blog' %}?page={{last}} class='active'>{{last}}</a></li>
+{% comment %}                <a href={% url 'blog:blog' %}?page={{blogs.previous_page_number}}><i class="bi bi-chevron-left"></i></a>
+                <a href={% url 'blog:blog' %}?page={{first}}><button>first page</button>
+                <a href={% url 'blog:blog' %}?page={{blogs.previous_page_number}}><button>prev page</button>
+ {% endcomment %}
+
+
+
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+    
+        </section><!-- /Blog Pagination Section -->
   </main>
   {% endblock 'content' %}

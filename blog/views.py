@@ -25,7 +25,15 @@ def blog(request, category=None):
     context = {
         "blogs":blog,
         "first" : first_page,
-        "last" : last_page
+        "last" : last_page,
+        "page_num": int(page_number),
+        "page_num_1": int(page_number)-1,
+        "page_num_2": int(page_number)-2,
+        "page_nump1": int(page_number)+1,
+        "page_nump2":int(page_number)+2,
+        "last_3": int(last_page)-3,
+        "last_2": int(last_page)-2,
+        "last_1": int(last_page)-1
     }
 
 
